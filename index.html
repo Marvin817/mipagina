@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Brokerage & Changes Corp — Asesoría en activos digitales y criptomonedas. Educación, cumplimiento normativo y acompañamiento personalizado." />
+  <title>Brokerage & Changes Corp — Asesoría en Cripto</title>
+
+  <!-- Simple favicon as data URI (monograma) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23333'/><text x='50' y='57' font-size='40' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'>BC</text></svg>">
+
+  <!-- Minimal CSS -->
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0f1724;
+      --muted: #556070;
+      --accent: #0b6efd; /* azul profesional */
+      --card: #f7f9fc;
+      --radius: 12px;
+      --maxw: 1000px;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      font-size:16px;
+      display:flex;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      background:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.98));
+      border-radius:18px;
+      box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+      overflow:hidden;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 28px;
+      border-bottom:1px solid #eef2f6;
+      background:transparent;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:12px;
+      background:linear-gradient(180deg,var(--accent), #084ed6);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-family:monospace;
+      box-shadow: 0 4px 18px rgba(11,110,253,0.15);
+    }
+    .brand h1{
+      margin:0;
+      font-size:1.05rem;
+      letter-spacing:0.2px;
+    }
+    .brand p{margin:0;color:var(--muted);font-size:0.88rem}
+
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    nav a:hover{color:var(--text); background:#f3f7ff}
+
+    main{
+      padding:36px 28px;
+      display:grid;
+      gap:36px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-title{
+      font-size:1.7rem;
+      margin:0 0 10px 0;
+      line-height:1.1;
+      color:var(--text);
+    }
+    .hero-sub{
+      margin:0 0 18px 0;
+      color:var(--muted);
+    }
+    .cta{
+      display:inline-block;
+      padding:12px 18px;
+      background:var(--accent);
+      color:white;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 8px 22px rgba(11,110,253,0.12);
+    }
+
+    /* Card */
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(15,23,36,0.03);
+    }
+
+    /* About + Services layout */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+    }
+
+    h2{
+      margin:0 0 14px 0;
+      font-size:1.15rem;
+    }
+    p{margin:0 0 12px 0;color:var(--muted)}
+
+    ul.services{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+    ul.services li{
+      background:white;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #eef2f6;
+      color:var(--text);
+      font-weight:600;
+    }
+
+    /* Contact form */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      align-items:start;
+    }
+    form{
+      display:grid;
+      gap:12px;
+    }
+    label{font-size:0.9rem;color:var(--muted)}
+    input[type="text"], input[type="email"], textarea{
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #e6eef6;
+      font-size:1rem;
+      resize:vertical;
+      background:white;
+    }
+    textarea{min-height:140px}
+    .send{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:12px 16px;
+      background:var(--accent);
+      color:white;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .note{font-size:0.9rem;color:var(--muted)}
+
+    footer{
+      padding:18px 28px;
+      border-top:1px solid #eef2f6;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      background:transparent;
+    }
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero, .contact-grid{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      body{padding:30px 12px}
+      .logo{width:46px;height:46px}
+    }
+
+    @media (max-width:420px){
+      .hero-title{font-size:1.35rem}
+    }
+  </style>
+
+  <!-- Structured data (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brokerage & Changes Corp",
+    "url": "",
+    "logo": "",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "Solutions@Brokeragechangescorp.com",
+      "contactType": "customer service",
+      "areaServed": "US"
+    }],
+    "description": "Asesoría en activos digitales y criptomonedas. Educación, cumplimiento normativo y acompañamiento personalizado."
+  }
+  </script>
+</head>
+<body>
+  <div class="container" role="document" aria-label="Brokerage & Changes Corp website">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">BC</div>
+        <div>
+          <h1>Brokerage & Changes Corp</h1>
+          <p>Asesoría en activos digitales y criptomonedas</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="inicio" class="hero" aria-labelledby="hero-heading">
+        <div>
+          <h2 id="hero-heading" class="hero-title">Asesoría confiable en activos digitales y criptomonedas</h2>
+          <p class="hero-sub">Acompañamos a personas y empresas en su ingreso al ecosistema cripto con información segura, estrategias básicas y orientación personalizada.</p>
+          <a class="cta" href="#contacto">Solicitar asesoría</a>
+        </div>
+
+        <aside class="card" aria-label="Resumen de la empresa">
+          <h3 style="margin-top:0">Lo que hacemos</h3>
+          <p class="note">Orientación para nuevos usuarios y empresas sobre cómo operar de forma segura, cumplimiento normativo y buenas prácticas en gestión de activos digitales.</p>
+          <hr style="border:none;border-top:1px solid #eef2f6;margin:14px 0">
+          <p style="margin:0;font-weight:700">Ubicación:</p>
+          <p class="note" style="margin-top:6px">Estados Unidos</p>
+        </aside>
+      </section>
+
+      <!-- ABOUT + SERVICES -->
+      <section class="grid-2" style="gap:28px">
+        <div>
+          <div class="card" id="sobre" aria-labelledby="sobre-title">
+            <h2 id="sobre-title">Sobre Nosotros</h2>
+            <p>En <strong>Brokerage & Changes Corp</strong> ayudamos a quienes desean ingresar al mundo de los activos digitales. Nuestro objetivo es brindar educación, guía y soporte para operar de manera segura, cumplir con las normativas aplicables y aprovechar las oportunidades del entorno cripto.</p>
+            <p>Nos enfocamos en acompañamiento personalizado para individuos y empresas, con información clara, procedimientos seguros y recomendaciones prácticas adaptadas al nivel de experiencia del cliente.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" id="servicios" aria-labelledby="servicios-title">
+            <h2 id="servicios-title">Nuestros Servicios</h2>
+            <ul class="services" aria-label="Lista de servicios">
+              <li>Asesoría personalizada en activos digitales</li>
+              <li>Orientación para empresas que inician en cripto</li>
+              <li>Educación sobre uso responsable y estrategias básicas</li>
+              <li>Guía en cumplimiento normativo y buenas prácticas</li>
+            </ul>
+            <p style="margin-top:12px;color:var(--muted)">Si necesitas un servicio a medida o capacitación para tu equipo, contáctanos y armamos una propuesta.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact-grid" id="contacto" aria-labelledby="contacto-title">
+        <div class="card" aria-labelledby="contacto-title">
+          <h2 id="contacto-title">Contacto</h2>
+          <p class="note">¿Deseas recibir orientación o programar una asesoría personalizada? Escríbenos o completa el formulario y te responderemos por email.</p>
+
+          <!-- Form that opens the user's email client via mailto: (js handles subject/body) -->
+          <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Formulario de contacto">
+            <div>
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" required placeholder="Tu nombre">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="tu@correo.com">
+            </div>
+            <div>
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos brevemente sobre tu consulta..." required></textarea>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center;justify-content:flex-start;margin-top:6px">
+              <button class="send" type="submit" aria-label="Enviar mensaje">Enviar mensaje</button>
+              <span class="note">o escribe directamente: <a href="mailto:Solutions@Brokeragechangescorp.com">Solutions@Brokeragechangescorp.com</a></span>
+            </div>
+          </form>
+        </div>
+
+        <aside class="card" aria-label="Información de contacto rápida">
+          <h3 style="margin-top:0">Contacto rápido</h3>
+          <p style="margin:0;font-weight:700">Email</p>
+          <p class="note" style="margin-top:6px"><a href="mailto:Solutions@Brokeragechangescorp.com">Solutions@Brokeragechangescorp.com</a></p>
+
+          <hr style="border:none;border-top:1px solid #eef2f6;margin:16px 0">
+
+          <p style="margin:0;font-weight:700">Horario de atención</p>
+          <p class="note" style="margin-top:6px">Lun - Vie, 9:00 AM - 6:00 PM (ET)</p>
+
+          <hr style="border:none;border-top:1px solid #eef2f6;margin:16px 0">
+
+          <p style="margin:0;font-weight:700">Aviso</p>
+          <p class="note" style="margin-top:6px">No brindamos inversión garantizada. La información proporcionada es educativa y orientativa. Consulte con un profesional certificado para decisiones complejas.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div style="color:var(--muted);font-size:0.95rem">©️ <span id="year"></span> Brokerage & Changes Corp — Todos los derechos reservados.</div>
+      <div style="color:var(--muted);font-size:0.95rem">Email: <a href="mailto:Solutions@Brokeragechangescorp.com">Solutions@Brokeragechangescorp.com</a></div>
+    </footer>
+  </div>
+
+  <!-- Small JS: mailto form + year -->
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Handle form submit: open user's email client with prefilled subject and body
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+      const subject = encodeURIComponent('Solicitud de asesoría - ' + name);
+      const bodyLines = [
+        'Nombre: ' + decodeURIComponent(name),
+        'Email: ' + decodeURIComponent(email),
+        '',
+        'Mensaje:',
+        decodeURIComponent(message),
+        '',
+        'Enviado desde: Brokerage & Changes Corp — sitio web'
+      ];
+
+      // Build mailto
+      const mailto = 'mailto:Solutions@Brokeragechangescorp.com'
+                   + '?subject=' + subject
+                   + '&body=' + encodeURIComponent(bodyLines.join('\\n'));
+
+      // Open mail client
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
